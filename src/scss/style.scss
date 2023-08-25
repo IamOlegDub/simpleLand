@@ -1,0 +1,140 @@
+@import 'reset';
+@import 'fonts';
+
+$text-color: #333333;
+$white: #ffffff;
+$primary-color: #2c2c2c;
+$light-gray-color: #f2f2f2;
+$gray-color: #bdbdbd;
+$very-light-color: #e0e0e0;
+$bg-light-color: #f9f9f9;
+$bg-section: #c4c4c4;
+$input-color: #f3f3f3;
+
+body {
+    font-family: TThoves;
+    background-color: $white;
+}
+.svg-Linked_In-dims {
+    width: 20px;
+    height: 20px;
+}
+.svg-arrow-2-right-long-dims {
+    width: 24px;
+    height: 24px;
+}
+.svg-arrow-2-left-long-dims {
+    width: 24px;
+    height: 24px;
+}
+.svg-facebook-dims {
+    width: 10px;
+    height: 19px;
+}
+.svg-twitter-dims {
+    width: 22px;
+    height: 17px;
+}
+section {
+    margin-bottom: 120px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div {
+    color: $text-color;
+}
+
+@mixin white-button {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    padding: 25px 50px;
+    background-color: $white;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    span {
+        font-size: 12px;
+        text-transform: uppercase;
+        line-height: 12px;
+        letter-spacing: 0.3rem;
+    }
+    &:hover {
+        background-color: $gray-color;
+    }
+    &.black-button {
+        background-color: $text-color;
+    }
+    &.transparent {
+        background-color: transparent;
+    }
+    @media (max-width: 980px) {
+        padding: 18px 24px;
+        span {
+            // letter-spacing: 2px;
+        }
+    }
+}
+
+@mixin titleH3 {
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 64px;
+    color: $gray-color;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $gray-color;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $text-color;
+}
+
+._anim-show {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+}
+._anim-show._active,
+._active ._anim-show {
+    opacity: 1;
+    transform: translate(0px, 0px);
+}
+
+@media (max-width: 980px) {
+    section {
+        margin-bottom: 50px;
+    }
+}
+
+@import 'header';
+@import 'section-hero';
+@import 'section-about';
+@import 'section-tasks';
+@import 'section-projects';
+@import 'section-form';
+@import 'footer';

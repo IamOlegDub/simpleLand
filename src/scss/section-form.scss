@@ -1,0 +1,138 @@
+.section-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 22px;
+    &__title {
+        overflow: hidden;
+        h3 {
+            @include titleH3;
+        }
+    }
+    &__content {
+        display: flex;
+        column-gap: 30px;
+        justify-content: space-between;
+        .form-container {
+            flex: 1;
+            form {
+                display: flex;
+                flex-direction: column;
+                row-gap: 10px;
+                .input-wrapper {
+                    position: relative;
+                    border: none;
+                    background-color: $input-color;
+                    max-width: 391px;
+                    cursor: text;
+                    label {
+                        font-family: TTHoves;
+                        font-size: 14px;
+                        letter-spacing: 0.028rem;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 20px;
+                        color: $gray-color;
+                        visibility: visible;
+                        opacity: 1;
+                        cursor: text;
+                        transition: all 0.3s ease-out;
+                        &[for='message'] {
+                            top: 15px;
+                            transform: translate(0);
+                        }
+                    }
+                    input,
+                    textarea {
+                        font-size: 14px;
+                        letter-spacing: 0.028rem;
+                        border: none;
+                        background-color: transparent;
+                        width: 100%;
+                        padding: 15px 20px;
+                        &:focus {
+                            & + label {
+                                visibility: hidden;
+                                opacity: 0;
+                            }
+                        }
+                    }
+                    textarea {
+                        min-height: 140px;
+                        resize: none;
+                    }
+                    label[for='phone'],
+                    label[for='email'],
+                    label[for='message'] {
+                        &::after {
+                            content: '*';
+                            color: red;
+                        }
+                    }
+                    &.textarea-wrapper {
+                        position: relative;
+                        .icon-box {
+                            width: 24px;
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            padding: 7px 5px;
+                        }
+                    }
+                }
+                .text-wrapper {
+                    margin-left: 40px;
+                    margin-top: 12px;
+                    margin-bottom: 11px;
+                    p {
+                        font-size: 14px;
+                        letter-spacing: 0.028rem;
+                    }
+                }
+                .white-button {
+                    @include white-button;
+                    width: fit-content;
+                    span {
+                        color: $white;
+                    }
+                    &:hover {
+                        background-color: $gray-color;
+                    }
+                }
+            }
+        }
+        .img-wrapper {
+            overflow: hidden;
+            height: fit-content;
+            img {
+                transition: all 0.3s ease-out;
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+}
+@media (max-width: 980px) {
+    .section-content {
+        max-width: 600px;
+        margin: 0 auto;
+        &__title {
+            h3 {
+                font-size: 36px;
+            }
+        }
+        &__content {
+            .img-wrapper {
+                display: none;
+            }
+        }
+        .form-container {
+            form {
+                .input-wrapper {
+                    max-width: none;
+                }
+            }
+        }
+    }
+}

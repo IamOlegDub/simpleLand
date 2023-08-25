@@ -1,0 +1,177 @@
+footer {
+    background-color: $text-color;
+    h5,
+    p,
+    span,
+    a {
+        color: $white;
+        &[href] {
+            position: relative;
+            transition: all 3s ease-out;
+            &:hover {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -3px;
+                    left: 0;
+                    width: 100%;
+                    height: 1px;
+                    background-color: $white;
+                }
+            }
+        }
+    }
+    .footer-content {
+        padding-top: 58px;
+        padding-bottom: 60px;
+        display: grid;
+        grid-template-areas: 'logo info contacts socials';
+        column-gap: 80px;
+        .icon-box.logo {
+            img {
+                width: 145px;
+                height: 94px;
+            }
+        }
+        .col {
+            display: flex;
+            flex-direction: column;
+            row-gap: 25px;
+            h5 {
+                font-size: 16px;
+                line-height: 16px;
+                font-weight: 600;
+                margin: 0;
+            }
+            ul {
+                display: flex;
+                flex-direction: column;
+                row-gap: 16px;
+                li {
+                    display: flex;
+                    column-gap: 19px;
+                    max-width: 300px;
+                    .icon-box {
+                        margin-top: 3px;
+                        img {
+                            min-width: 30px;
+                        }
+                    }
+                    a {
+                        font-size: 14px;
+                        line-height: 24px;
+                        letter-spacing: 0.027rem;
+                    }
+                }
+            }
+            &.socials {
+                .socials-container {
+                    display: flex;
+                    column-gap: 40px;
+                    align-items: center;
+                    .icon-box {
+                        img {
+                            min-width: 22px;
+                        }
+                    }
+                }
+            }
+            &.logo {
+                grid-area: logo;
+            }
+            &.info {
+                grid-area: info;
+            }
+            &.contacts {
+                grid-area: contacts;
+            }
+            &.socials {
+                grid-area: socials;
+            }
+        }
+    }
+    .copyright {
+        padding: 24px;
+        text-align: center;
+        position: relative;
+        .line {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100vw - 12px);
+            height: 1px;
+            background-color: $gray-color;
+            opacity: 50%;
+        }
+        p {
+            font-size: 12px;
+            line-height: 12px;
+            color: $gray-color;
+            opacity: 50%;
+        }
+    }
+}
+
+@media (max-width: 980px) {
+    footer {
+        .footer-content {
+            padding-top: 20px;
+            justify-content: center;
+            grid-template-areas:
+                'logo logo'
+                'info socials'
+                'contacts contacts';
+            row-gap: 40px;
+            .icon-box.logo {
+                img {
+                    margin: 0 auto;
+                }
+            }
+            .col {
+                display: flex;
+                flex-direction: column;
+                row-gap: 25px;
+                h5 {
+                    font-size: 16px;
+                    line-height: 16px;
+                    font-weight: 600;
+                    margin: 0;
+                }
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 16px;
+                    li {
+                        display: flex;
+                        column-gap: 19px;
+                        max-width: 300px;
+                        .icon-box {
+                            margin-top: 3px;
+                            img {
+                                min-width: 30px;
+                            }
+                        }
+                        a {
+                            font-size: 14px;
+                            line-height: 24px;
+                            letter-spacing: 0.027rem;
+                        }
+                    }
+                }
+                &.socials {
+                    .socials-container {
+                        display: flex;
+                        column-gap: 10px;
+                        align-items: center;
+                        .icon-box {
+                            img {
+                                min-width: 22px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

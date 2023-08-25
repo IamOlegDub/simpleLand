@@ -1,0 +1,155 @@
+.hero-content {
+    padding-top: 102px;
+    display: flex;
+    align-items: center;
+    column-gap: 122.24px;
+    position: relative;
+    &__item {
+        &__text {
+            font-size: 64px;
+            text-transform: uppercase;
+            color: $text-color;
+            font-weight: bold;
+            line-height: 64px;
+            .light-text {
+                display: block;
+                color: $gray-color;
+                font-weight: 300;
+                transform: translate(0px, 120%);
+                opacity: 0;
+                transition: all 0.8s ease;
+                &._active {
+                    transform: translate(0px, 0px);
+                    opacity: 1;
+                }
+            }
+            .bold-text {
+                display: block;
+                transform: translate(0px, -120%);
+                opacity: 0;
+                transition: all 0.8s ease;
+                &._active {
+                    transform: translate(0px, 0px);
+                    opacity: 1;
+                }
+            }
+        }
+        &__img-container {
+            max-width: 770px;
+            position: relative;
+            overflow: hidden;
+            .hero-img {
+                transition: transform 0.3s ease-out;
+                &:hover {
+                    transform: scale(1.2);
+                }
+                &.reverse {
+                    transform: scale(-1, 1);
+                }
+            }
+            .white-button {
+                @include white-button;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: 10;
+            }
+        }
+        .arrows {
+            display: flex;
+            column-gap: 23px;
+            position: absolute;
+            bottom: 225px;
+            left: 0;
+            .icon-box {
+                padding: 15px;
+                border: 1px solid $light-gray-color;
+                background: $white;
+                cursor: pointer;
+                position: relative;
+                &.active {
+                    background-color: $bg-light-color;
+                }
+                &:last-child::after {
+                    content: '';
+                    position: absolute;
+                    width: 500px;
+                    height: 1px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 0;
+                    background: $light-gray-color;
+                    z-index: -1;
+                }
+            }
+        }
+        .indicators {
+            display: flex;
+            column-gap: 26px;
+            position: absolute;
+            bottom: 104px;
+            .indicator {
+                p {
+                    font-size: 24px;
+                    line-height: 24px;
+                    color: $very-light-color;
+                }
+                &.slash {
+                    width: 43.82px;
+                    height: 1px;
+                    background-color: $very-light-color;
+                    transform: rotate(135deg);
+                    margin: auto 0;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 980px) {
+    .hero-content {
+        flex-direction: column;
+        row-gap: 30px;
+        flex-direction: column-reverse;
+        &__item {
+            &:first-child {
+                padding-bottom: 80px;
+            }
+            .arrows {
+                display: flex;
+                column-gap: 23px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                justify-content: space-between;
+                width: 100%;
+                .icon-box {
+                    &:last-child::after {
+                        display: none;
+                    }
+                }
+            }
+            .indicators {
+                display: flex;
+                column-gap: 26px;
+                position: absolute;
+                bottom: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                .indicator {
+                    p {
+                        font-size: 24px;
+                        line-height: 24px;
+                        color: $very-light-color;
+                    }
+                    &.slash {
+                        width: 43.82px;
+                        height: 1px;
+                        background-color: $very-light-color;
+                        transform: rotate(135deg);
+                        margin: auto 0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,102 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 50;
+    background-color: $white;
+    .header-content {
+        display: flex;
+        column-gap: 330px;
+        &__img-container {
+            display: flex;
+            padding: 29.14px 0;
+        }
+        &__navbar {
+            margin: auto 0;
+            .burger-menu {
+                display: none;
+                cursor: pointer;
+                transition: all 0.3s ease 0s;
+                .bar {
+                    width: 25px;
+                    height: 3px;
+                    background-color: $text-color;
+                    margin: 3px 0;
+                    transition: all 0.3s ease 0s;
+                }
+            }
+            ul {
+                display: flex;
+                align-items: center;
+                column-gap: 60px;
+                .header-content__navbar_item {
+                    text-transform: uppercase;
+                    color: $primary-color;
+                    font-size: 12px;
+                    line-height: 12px;
+                    padding: 4px 0;
+                    cursor: pointer;
+                    &:hover {
+                        border-top: 1px solid $primary-color;
+                        border-bottom: 1px solid $primary-color;
+                    }
+                    &.currentPageTag {
+                        border-top: 1px solid $primary-color;
+                        border-bottom: 1px solid $primary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 980px) {
+    header {
+        .header-content {
+            column-gap: 0px;
+            justify-content: space-between;
+            &__navbar {
+                .burger-menu {
+                    display: block;
+                    .bar {
+                        width: 25px;
+                        height: 1px;
+                        background-color: $primary-color;
+                        margin: 6px 0;
+                    }
+                }
+                ul {
+                    display: none;
+                    flex-direction: column;
+                    row-gap: 20px;
+                    padding: 10px;
+                    background-color: #fff;
+                    position: absolute;
+                    top: 100px;
+                    left: 0;
+                    width: 100%;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                }
+                &.active {
+                    ul {
+                        display: flex;
+                    }
+                    .burger-menu {
+                        transform: translate(6px);
+                        .bar:first-child {
+                            transform: rotate(45deg) translate(0px, 10px);
+                        }
+                        .bar:nth-child(2) {
+                            transform: translate(150%, 0px);
+                            opacity: 0;
+                        }
+                        .bar:last-child {
+                            transform: rotate(-45deg) translate(0px, -10px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
